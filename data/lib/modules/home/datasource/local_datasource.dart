@@ -31,18 +31,6 @@ class LocalDataSource {
       return list;
     });
     yield* mainStream;
-
-    /*  await for (var articles in mainStream) {
-      List<ArticleLocalDTO> list = [];
-      for (var article in articles) {
-        var tagsQuery = db.articleTag.select()
-          ..where((tag) => tag.articleId.equals(article.id));
-        var tagsStream = tagsQuery.watch();
-          tagsStream.listen((tags) {article.tags = tags.map((el) => el.tag).toList();
-          list.add(article); });
-        yield list;
-      }
-    }*/
   }
 
   Future<Map<int, List<String>>> getArticleTagsById(List<int> articleIds) async {
